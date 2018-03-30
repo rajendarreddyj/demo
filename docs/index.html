@@ -7,7 +7,8 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="apple-itunes-app" content="app-id=492680525, app-argument=xerox-com://">
     <meta name="google-play-app" content="app-id=com.Sunpass.Sunpass_Android">
-    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
+    <meta name="author" content="Demo">
     <!--<link rel="stylesheet" href="css/styles.css?v=1.0">-->
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -35,7 +36,30 @@
             });
         })
     </script>
-
+    <script src="smart-app-banner.js"></script>
+    <script type="text/javascript">
+      new SmartBanner({
+          daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
+          daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+          appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+          title: 'MyPage',
+          author: 'MyCompany LLC',
+          button: 'VIEW',
+          store: {
+              ios: 'On the App Store',
+              android: 'In Google Play',
+              windows: 'In Windows store'
+          },
+          price: {
+              ios: 'FREE',
+              android: 'FREE',
+              windows: 'FREE'
+          }
+          // , theme: '' // put platform type ('ios', 'android', etc.) here to force single theme on all device
+          // , icon: '' // full path to icon image if not using website icon image
+          // , force: 'ios' // Uncomment for platform emulation
+      });
+    </script>
     <div id="printDiv">
         <h2>Hello World</h2>
         <p> this content will be printed. </p>
