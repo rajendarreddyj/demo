@@ -46,7 +46,7 @@
     <script type="text/javascript">
       var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
         isAndroid = navigator.userAgent.match('Android');
-        var appUrl= isiOS?'https://itunes.apple.com/app/my-app/id492680525': isAndroid?:'https://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android':'';
+        var appUrl= isiOS?'https://itunes.apple.com/app/my-app/id492680525': isAndroid?'https://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android':'';
       new SmartBanner({
           daysHidden: -1,   // days to hide banner after close button is clicked (defaults to 15)
           daysReminder: -1, // days to hide banner after "VIEW" button is clicked (defaults to 90)
