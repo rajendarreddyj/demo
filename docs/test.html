@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <style></style>
+</head>
+
+<body>It'd be really cool if you could link from a webpage to your app You can open links to iPhone apps and fall back
+
+    <meta name="viewport" content="width=device-width">
+
+    <h2><a id="applink1" href="fb://profile/116201417">open facebook with fallback to appstore</a></h2>
+    <h2><a id="applink2" href="sunpass://nowhere">open unknown with fallback to appstore</a></h2>
+    <p><i>Only works on iPhone!</i></p>
+
+    <script type="text/javascript">
+        // To avoid the "protocol not supported" alert, fail must open another app.
+        var appstore = "itms://itunes.apple.com/us/app/facebook/id284882215?mt=8&uo=6";
+
+        function applink(fail) {
+            return function() {
+                var clickedAt = +new Date;
+                // During tests on 3g/3gs this timeout fires immediately if less than 500ms.
+                setTimeout(function() {
+                    // To avoid failing on return to MobileSafari, ensure freshness!
+                    if (+new Date - clickedAt < 2000) {
+                        window.location = fail;
+                    }
+                }, 500);
+            };
+        }
+
+        document.getElementById("applink1").onclick = applink(appstore);
+        document.getElementById("applink2").onclick = applink(appstore);
+    </script>
+
+</body>
+
+</html>
