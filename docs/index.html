@@ -48,7 +48,7 @@
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
   var appUrl = isiOS ? 'http://itunes.apple.com/app/my-app/id492680525' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var customUrl = 'amazon://';
+  var customUrl = 'sunpass://';
 
   function gotomobileapp() {
       var redirect = function(location) {
