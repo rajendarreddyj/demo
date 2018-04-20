@@ -112,7 +112,7 @@
                     a.body ? a.body.appendChild(q) : a && a.addEventListener("DOMContentLoaded", function() {
                         a.body.appendChild(q)
                     });
-                    b(".smartbanner-button", q).addEventListener("click", this.install.bind(this), !1);
+                    //b(".smartbanner-button", q).addEventListener("click", this.install.bind(this), !1);
                     b(".smartbanner-close", q).addEventListener("click", this.close.bind(this), !1)
                 },
                 hide: function() {
