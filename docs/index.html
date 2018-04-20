@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>The HTML5 Herald</title>
+    <title>Rajendarreddy Jagapathi</title>
     <meta name="description" content="Rajendarreddy Jagapathi Demo">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- App store -->
@@ -48,12 +48,12 @@
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
   var appUrl = isiOS ? 'https://itunes.apple.com/app/my-app/id492680525' : isAndroid ? 'https://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var customUrl = 'sunpass://';
+  var customUrl = 'amazon://';
 
   function gotomobileapp() {
-      var redirect = function() {
+      var redirect = function(location) {
           var iframe = document.createElement('iframe');
-          iframe.setAttribute('src', customUrl);
+          iframe.setAttribute('src', location);
           iframe.setAttribute('width', '1px');
           iframe.setAttribute('height', '1px');
           iframe.setAttribute('position', 'absolute');
@@ -66,7 +66,9 @@
 
       setTimeout(function() {
           redirect(appUrl);
-      }, 25);
+      }, 1000);
+      
+      redirect(customUrl);
   }
         new SmartBanner({
           daysHidden: -1,   // days to hide banner after close button is clicked (defaults to 15)
