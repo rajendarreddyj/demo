@@ -44,10 +44,30 @@
     </script>
     <script src="smart-app-banner.js"></script>
     <script type="text/javascript">
-      var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-        isAndroid = navigator.userAgent.match('Android');
-        var appUrl= isiOS?'https://itunes.apple.com/app/my-app/id492680525': isAndroid?'https://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android':'';
-      new SmartBanner({
+  var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+      isAndroid = navigator.userAgent.match('Android');
+  var appUrl = isiOS ? 'https://itunes.apple.com/app/my-app/id492680525' : isAndroid ? 'https://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
+  var customUrl = 'sunpass://';
+
+  function gotomobileapp() {
+      var redirect = function() {
+          var iframe = document.createElement('iframe');
+          iframe.setAttribute('src', customUrl);
+          iframe.setAttribute('width', '1px');
+          iframe.setAttribute('height', '1px');
+          iframe.setAttribute('position', 'absolute');
+          iframe.setAttribute('top', '0');
+          iframe.setAttribute('left', '0');
+          document.documentElement.appendChild(iframe);
+          iframe.parentNode.removeChild(iframe);
+          iframe = null;
+      };
+
+      setTimeout(function() {
+          redirect(appUrl);
+      }, 25);
+  }
+        new SmartBanner({
           daysHidden: -1,   // days to hide banner after close button is clicked (defaults to 15)
           daysReminder: -1, // days to hide banner after "VIEW" button is clicked (defaults to 90)
           appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
@@ -68,24 +88,7 @@
           , icon: 'app-icon.jpg' // full path to icon image if not using website icon image
         // ,force: 'ios' // Uncomment for platform emulation
       });
-        function gotomobileapp(){
-         var redirect = function (location) {
-            var iframe = document.createElement('iframe');
-            iframe.setAttribute('src', location);
-            iframe.setAttribute('width', '1px');
-            iframe.setAttribute('height', '1px');
-            iframe.setAttribute('position', 'absolute');
-            iframe.setAttribute('top', '0');
-            iframe.setAttribute('left', '0');
-            document.documentElement.appendChild(iframe);
-            iframe.parentNode.removeChild(iframe);
-            iframe = null;
-    };
 
-    setTimeout(function () {
-        redirect(appUrl);
-    }, 25);
-        }
     </script>
     <div id="printDiv">
         <h2>Hello World</h2>
