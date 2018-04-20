@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>iOS Automatic Deep Linking</title>
+    <script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
+    <script src='//mobileesp.googlecode.com/svn/JavaScript/mdetect.js'></script>
+    <script>
+      (function ($, MobileEsp) {
+        // On document ready, redirect to the App on the App store.
+        $(function () {
+          if (typeof MobileEsp.DetectIos !== 'undefined' && MobileEsp.DetectIos()) {
+            // Add an iframe to twitter://, and then an iframe for the app store
+            // link. If the first fails to redirect to the Twitter app, the
+            // second will redirect to the app on the App Store. We use jQuery
+            // to add this after the document is fully loaded, so if the user
+            // comes back to the browser, they see the content they expect.
+            $('body').append('<iframe class="twitter-detect" src="twitter://" />')
+              .append('<iframe class="twitter-detect" src="itms-apps://itunes.com/apps/twitter" />');
+          }
+        });
+      })(jQuery, MobileEsp);
+    </script>
+    <style type="text/css">
+      .twitter-detect {
+        display: none;
+      }
+    </style>
+    </head>
+    <body>
+    <p>Website content.</p>
+    </body>
+</html>
