@@ -106,9 +106,9 @@
                     var q = a.createElement("div");
                     q.className = "smartbanner smartbanner-" + (this.options.theme || this.type);
                     q.innerHTML = '<div class="smartbanner-container"><a href="javascript:void(0);" class="smartbanner-close">&times;</a><span class="smartbanner-icon" style="background-image: url(' + m + ')"></span><div class="smartbanner-info"><div class="smartbanner-title">' +
-                        this.options.title + "</div><div>" + this.options.author + "</div><span>" + e + '</span></div><a onclick="
-                    gotomobileapp()
-                    " class="smartbanner-button"><span class="smartbanner-button-text">' + this.options.button + "</span></a></div>";
+                        this.options.title + "</div><div>" + this.options.author + "</div><span>" + e + '</span></div><a onclick=' +
+                    'gotomobileapp()'
+                     +'class="smartbanner-button"><span class="smartbanner-button-text">' + this.options.button + "</span></a></div>";
                     a.body ? a.body.appendChild(q) : a && a.addEventListener("DOMContentLoaded", function() {
                         a.body.appendChild(q)
                     });
