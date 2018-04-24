@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Go To Mobile Application or PlayStore</title>
+    <meta name="description" content="Rajendarreddy Jagapathi Demo">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- App store -->
+    <meta name="apple-itunes-app" content="app-id=492680525, app-argument=sunpass://">
+    <!-- Play Store -->
+    <meta name="google-play-app" content="app-id=com.Sunpass.Sunpass_Android">
+    <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
+</head>
+
+<body>
+    <script src="smart-app-banner1.js"></script>
+    <script type="text/javascript">
+        var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+            isAndroid = navigator.userAgent.match('Android');
+        var appUrl = isiOS ? 'http://itunes.apple.com/app/my-app/id492680525' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
+        var customUrl = 'sunpass://';
+
+        function gotomobileapp() {
+            var redirect = function(location) {
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('src', location);
+                iframe.setAttribute('width', '1px');
+                iframe.setAttribute('height', '1px');
+                iframe.setAttribute('position', 'absolute');
+                iframe.setAttribute('top', '0');
+                iframe.setAttribute('left', '0');
+                document.documentElement.appendChild(iframe);
+                iframe.parentNode.removeChild(iframe);
+                iframe = null;
+            };
+            setTimeout(function() {
+                window.location.replace(appUrl);
+            }, 1000);
+
+            redirect(customUrl);
+        }
+        new SmartBanner({
+            daysHidden: -1, // days to hide banner after close button is clicked (defaults to 15)
+            daysReminder: -1, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+            appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+            title: 'MyApplication',
+            author: 'MyCompany LLC',
+            button: 'VIEW',
+            store: {
+                ios: 'On the App Store',
+                android: 'In Google Play',
+                windows: 'In Windows store'
+            },
+            price: {
+                ios: 'FREE',
+                android: 'FREE',
+                windows: 'FREE'
+            },
+            theme: 'ios' // put platform type ('ios', 'android', etc.) here to force single theme on all device
+                ,
+            icon: 'app-icon.jpg' // full path to icon image if not using website icon image
+                // ,force: 'ios' // Uncomment for platform emulation
+        });
+    </script>
+    <div>
+        <h2>Hello World</h2>
+        <p> this content will be printed. </p>
+        <br/>
+        <br/>
+    </div>
+</body>
+</html>
