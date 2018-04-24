@@ -3,12 +3,11 @@
     <head>
     <title>iOS Automatic Deep Linking</title>
     <script src='//code.jquery.com/jquery-1.11.2.min.js'></script>
-    <script src='mdetect.js'></script>
     <script>
-      (function ($, MobileEsp) {
+      (function ($) {
         // On document ready, redirect to the App on the App store.
         $(function () {
-          if (typeof MobileEsp.DetectIos !== 'undefined' && MobileEsp.DetectIos()) {
+          if (navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone')) {
             // Add an iframe to twitter://, and then an iframe for the app store
             // link. If the first fails to redirect to the Twitter app, the
             // second will redirect to the app on the App Store. We use jQuery
@@ -18,7 +17,7 @@
               .append('<iframe class="twitter-detect" src="itms-apps://itunes.com/apps/twitter" />');
           }
         });
-      })(jQuery, MobileEsp);
+      })(jQuery);
     </script>
     <style type="text/css">
       .twitter-detect {
