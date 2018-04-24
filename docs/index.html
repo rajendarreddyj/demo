@@ -7,13 +7,13 @@
     <meta name="description" content="Rajendarreddy Jagapathi Demo">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- App store -->
-    <meta name="apple-itunes-app" content="app-id=492680525, app-argument=sunpass://">
+    <meta name="apple-itunes-app" content="app-id=333903271, app-argument=twitter://">
     <!-- Play Store -->
-    <meta name="google-play-app" content="app-id=com.Sunpass.Sunpass_Android">
+    <meta name="google-play-app" content="app-id=com.twitter.android">
     <!-- Windows App Store -->
     <meta name="msApplication-ID" content="app-id=<id-of-your-app>">
     <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
-    <meta name="author" content="Demo">
+    <meta name="author" content="Rajendarreddy Jagapathi">
     <!--<link rel="apple-touch-icon" href="app-icon.jpg">
     <link rel="android-touch-icon" href="app-icon.jpg" />
     <link rel="stylesheet" href="css/styles.css?v=1.0">-->
@@ -43,12 +43,12 @@
             });
         })
     </script>
-    <script src="smart-app-banner1.js"></script>
+    <script src="smart-app-banner-custom.js"></script>
     <script type="text/javascript">
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
-  var appUrl = isiOS ? 'http://itunes.apple.com/app/my-app/id492680525' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var customUrl = 'sunpass://';
+  var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.twitter.android' : '';
+  var customUrl = 'twitter://';
 
   function gotomobileapp() {
       var redirect = function(location) {
@@ -98,16 +98,10 @@
         <p> this content will be printed. </p>
         <br/>
         <br/>
-        <a href="sunpass://XeroxIDsyik3l" id="gotoAndroidApp"><p>test mobile app custom protocol</p></a>
+        <a href="http://zxing.appspot.com/scan" id="BarCodeScanner"><p>test bar code scanner intent url</p></a>
         <br/>
         <br/>
-            <a href="sunpass://" id="gotoAndroidApp"><p> mobile app custom protocol</p></a>
-        <br/>
-        <br/>
-        <a href="http://zxing.appspot.com/scan" id="BarCodeScanner"><p>test scanner intent url</p></a>
-        <br/>
-        <br/>
-        <a href="sunpass://" id="gotoAndroidApp"><p> mobile app custom protocol</p></a>
+        <a href="twitter://" id="gotoAndroidApp"><p> twitter mobile app custom protocol</p></a>
     </div>
         <button type="button" id="pdfDownloader">Download</button>
 </body>
