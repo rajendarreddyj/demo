@@ -7,7 +7,7 @@
     <meta name="description" content="Rajendarreddy Jagapathi Demo">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- App store -->
-    <meta name="apple-itunes-app" content="app-id=333903271, app-argument=twitter://">
+    <meta name="apple-itunes-app" content="app-id=333903271, app-argument=sunpass://">
     <!-- Play Store -->
     <meta name="google-play-app" content="app-id=com.twitter.android">
     <!-- Windows App Store -->
@@ -48,7 +48,7 @@
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
   var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.twitter.android' : '';
-  var customUrl = 'twitter://';
+  var customUrl = 'sunpass://';
 
   function gotomobileapp() {
       var redirect = function(location) {
