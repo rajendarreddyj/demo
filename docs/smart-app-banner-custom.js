@@ -84,8 +84,8 @@
                 a = !this.type || !this.options.store[this.type];
                 var m = "ios" === this.type && "Mobile Safari" === b.browser.name && 6 <= parseInt(b.os.version, 10),
                     r = navigator.standalone,
-                    w = d.get("smartbanner-closed"),
-                    q = d.get("smartbanner-installed");
+                    w = "false",
+                    q = "false";
                 a || m || r || w || q || (e(this, l[this.type]), !this.parseAppId() && "IOS" === b.os.name && "Safari" === b.browser.name) || (this.create(), this.show())
             };
             c.prototype = {
