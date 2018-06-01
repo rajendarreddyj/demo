@@ -48,9 +48,9 @@
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
   var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var timeoutms = isiOS ? 1000 : 1000;    
+  var timeoutms = isiOS ? 1000 : 2000;    
   var customUrl = 'sunpass://';
-  var startedAt;
+  var startedAt, fadeInterval= timeoutms+100;
 
   function gotomobileapp() {
       var redirect = function(location) {
@@ -70,7 +70,7 @@
       
       redirect(customUrl);
       setTimeout(function() {
-          if (Date.now() < startedAt + timeoutms +100) {window.location.replace(appUrl)};
+          if (Date.now() < startedAt + fadeInterval) {window.location.replace(appUrl)};
       }, timeoutms);
   }
         new SmartBanner({
