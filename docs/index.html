@@ -48,7 +48,7 @@
   var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
       isAndroid = navigator.userAgent.match('Android');
   var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var timeoutms = isiOS ? 1000 : 4000;    
+  var timeoutms = isiOS ? 1000 : 1000;    
   var customUrl = 'sunpass://';
 
   function gotomobileapp() {
