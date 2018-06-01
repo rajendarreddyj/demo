@@ -69,7 +69,7 @@
 
       
       redirect(customUrl);
-      setInterval(function() {
+      setTimeout(function() {
           if (Date.now() < startedAt + timeoutms) {window.location.replace(appUrl)};
       }, timeoutms);
   }
