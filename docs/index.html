@@ -1,112 +1,114 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Rajendarreddy Jagapathi</title>
-    <meta name="description" content="Rajendarreddy Jagapathi Demo">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <!-- App store -->
-    <meta name="apple-itunes-app" content="app-id=333903271, app-argument=sunpass://">
-    <!-- Play Store -->
-    <meta name="google-play-app" content="app-id=com.twitter.android">
-    <!-- Windows App Store -->
-    <meta name="msApplication-ID" content="app-id=<id-of-your-app>">
-    <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
-    <meta name="author" content="Rajendarreddy Jagapathi">
-    <!--<link rel="apple-touch-icon" href="app-icon.jpg">
-    <link rel="android-touch-icon" href="app-icon.jpg" />
-    <link rel="stylesheet" href="css/styles.css?v=1.0">-->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
-
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script>
-        $(document).ready(function () {
-            //pdf
-            $("#pdfDownloader").click(function () {
-                html2canvas(document.getElementById("printDiv"), {
-                    onrendered: function (canvas) {
-                        var imgData = canvas.toDataURL('image/png');
-                        console.log('Report Image URL: ' + imgData);
-                        var doc = new jsPDF('p', 'mm', [297, 210]); //210mm wide and 297mm high
-                        doc.addImage(imgData, 'PNG', 10, 10);
-                        //doc.save('sample.pdf');
-                        doc.output('dataurlnewwindow');  
-                    }
-                });
-            });
-        })
-    </script>
-    <script src="smart-app-banner-custom.js"></script>
-    <script type="text/javascript">
-  var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-      isAndroid = navigator.userAgent.match('Android');
-  var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.Sunpass.Sunpass_Android' : '';
-  var timeoutms = isiOS ? 1000 : 2000;    
-  var customUrl = 'sunpass://';
-  var startedAt, fadeInterval= timeoutms+100;
-
-  function gotomobileapp() {
-      var redirect = function(location) {
-          var iframe = document.createElement('iframe');
-          iframe.setAttribute('src', location);
-          iframe.setAttribute('width', '1px');
-          iframe.setAttribute('height', '1px');
-          iframe.setAttribute('position', 'absolute');
-          iframe.setAttribute('top', '0');
-          iframe.setAttribute('left', '0');
-          startedAt = Date.now();
-          document.documentElement.appendChild(iframe);
-          iframe.parentNode.removeChild(iframe);
-          iframe = null;
-      };
-
-      
-      redirect(customUrl);
-      setTimeout(function() {
-          if (Date.now() < startedAt + fadeInterval) {window.location.replace(appUrl)};
-      }, timeoutms);
-  }
-        new SmartBanner({
-          daysHidden: -1,   // days to hide banner after close button is clicked (defaults to 15)
-          daysReminder: -1, // days to hide banner after "VIEW" button is clicked (defaults to 90)
-          appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
-          title: 'MyApplication',
-          author: 'MyCompany LLC',
-          button: 'VIEW',
-          store: {
-              ios: 'On the App Store',
-              android: 'In Google Play',
-              windows: 'In Windows store'
-          },
-          price: {
-              ios: 'FREE',
-              android: 'FREE',
-              windows: 'FREE'
-          }
-          , theme: 'ios' // put platform type ('ios', 'android', etc.) here to force single theme on all device
-          , icon: 'app-icon.jpg' // full path to icon image if not using website icon image
-        // ,force: 'ios' // Uncomment for platform emulation
-      });
-
-    </script>
-    <div id="printDiv">
-        <h2>Hello World</h2>
-        <p> this content will be printed. </p>
-        <br/>
-        <br/>
-        <a href="http://zxing.appspot.com/scan" id="BarCodeScanner"><p>test bar code scanner intent url</p></a>
-        <br/>
-        <br/>
-        <a href="twitter://" id="gotoAndroidApp"><p> twitter mobile app custom protocol</p></a>
-    </div>
-        <button type="button" id="pdfDownloader">Download</button>
-</body>
-
+   <head>
+      <meta charset="utf-8">
+      <title>Rajendarreddy Jagapathi</title>
+      <meta name="description" content="Rajendarreddy Jagapathi Demo">
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+      <!-- App store -->
+      <meta name="apple-itunes-app" content="app-id=333903271, app-argument=sunpass://">
+      <!-- Play Store -->
+      <meta name="google-play-app" content="app-id=com.twitter.android">
+      <!-- Windows App Store -->
+      <meta name="msApplication-ID" content="app-id=<id-of-your-app>">
+      <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
+      <meta name="author" content="Rajendarreddy Jagapathi">
+      <!--<link rel="apple-touch-icon" href="app-icon.jpg">
+         <link rel="android-touch-icon" href="app-icon.jpg" />
+         <link rel="stylesheet" href="css/styles.css?v=1.0">-->
+      <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <script>
+         $(document).ready(function () {
+             //pdf
+             $("#pdfDownloader").click(function () {
+                 html2canvas(document.getElementById("printDiv"), {
+                     onrendered: function (canvas) {
+                         var imgData = canvas.toDataURL('image/png');
+                         console.log('Report Image URL: ' + imgData);
+                         var doc = new jsPDF('p', 'mm', [297, 210]); //210mm wide and 297mm high
+                         doc.addImage(imgData, 'PNG', 10, 10);
+                         //doc.save('sample.pdf');
+                         doc.output('dataurlnewwindow');  
+                     }
+                 });
+             });
+         })
+      </script>
+      <script src="smart-app-banner-custom.js"></script>
+      <script type="text/javascript">
+         var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+         var isAndroid = navigator.userAgent.match('Android');
+         var appUrl = isiOS ? 'http://itunes.apple.com/us/app/twitter/id333903271' : isAndroid ? 'http://play.google.com/store/apps/details?id=com.twitter.android' : '';
+         var timeoutms = isiOS ? 1000 : 2000;
+         var customUrl = 'twitter://';
+         var startedAt, fadeInterval = timeoutms + 100;
+         
+         function launchMobileapp() {
+           var redirect = function(location) {
+         	  var iframe = document.createElement('iframe');
+         	  iframe.setAttribute('src', location);
+         	  iframe.setAttribute('width', '1px');
+         	  iframe.setAttribute('height', '1px');
+         	  iframe.setAttribute('position', 'absolute');
+         	  iframe.setAttribute('top', '0');
+         	  iframe.setAttribute('left', '0');
+         	  startedAt = Date.now();
+         	  document.documentElement.appendChild(iframe);
+         	  iframe.parentNode.removeChild(iframe);
+         	  iframe = null;
+           };
+         
+           redirect(customUrl);
+           setTimeout(function() {
+         	  if (Date.now() <= startedAt + fadeInterval) {
+         		  window.location.replace(appUrl)
+         	  };
+           }, timeoutms);
+         }
+         new SmartBanner({
+           daysHidden: -1, // days to hide banner after close button is clicked (defaults to 15)
+           daysReminder: -1, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+           appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+           title: 'MyApplication',
+           author: 'MyCompany LLC',
+           button: 'VIEW',
+           store: {
+         	  ios: 'On the App Store',
+         	  android: 'In Google Play',
+         	  windows: 'In Windows store'
+           },
+           price: {
+         	  ios: 'FREE',
+         	  android: 'FREE',
+         	  windows: 'FREE'
+           },
+           theme: 'ios', // put platform type ('ios', 'android', etc.) here to force single theme on all device
+           icon: 'app-icon.jpg' // full path to icon image if not using website icon image
+           // ,force: 'ios' // Uncomment for platform emulation
+         });
+           
+      </script>
+      <div id="printDiv">
+         <h2>Hello World</h2>
+         <p> this content will be printed. </p>
+         <br/>
+         <br/>
+         <a href="http://zxing.appspot.com/scan" id="BarCodeScanner">
+            <p>test bar code scanner intent url</p>
+         </a>
+         <br/>
+         <br/>
+         <a href="twitter://" id="gotoAndroidApp">
+            <p> twitter mobile app custom protocol</p>
+         </a>
+      </div>
+      <button type="button" id="pdfDownloader">Download</button>
+   </body>
 </html>
