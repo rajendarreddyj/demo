@@ -65,11 +65,11 @@
           iframe = null;
       };
 
+      
+      redirect(customUrl);
       setInterval(function() {
           if (document.hasFocus()) {window.location.replace(appUrl)};
       }, timeoutms);
-      
-      redirect(customUrl);
   }
         new SmartBanner({
           daysHidden: -1,   // days to hide banner after close button is clicked (defaults to 15)
