@@ -70,7 +70,7 @@
       
       redirect(customUrl);
       setTimeout(function() {
-          if (Date.now() < startedAt + timeoutms) {window.location.replace(appUrl)};
+          if (Date.now() < startedAt + timeoutms +100) {window.location.replace(appUrl)};
       }, timeoutms);
   }
         new SmartBanner({
