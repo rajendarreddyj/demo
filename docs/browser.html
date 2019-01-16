@@ -30,7 +30,7 @@ if (userAgent != null) {
         browserVersion = substring.split(" ")[1];
         validVersion = ValidVersion_IE
     } else {
-        if (user.indexOf("safari") != -1 && user.indexOf("version") != -1) {
+        if (user.indexOf("android") == -1 && user.indexOf("safari") != -1 && user.indexOf("version") != -1) {
             browserVersion = (userAgent.substring(userAgent.indexOf("Version")).split(" ")[0]).split("/")[1];
             validVersion = ValidVersion_Safari
         } else {
@@ -89,7 +89,11 @@ if (userAgent != null) {
     }
 }
 if (showPopup) {
-   document.getElementById("popup").innerHTML = browserVersion + user;
+   document.getElementById("popup").innerHTML = 'Un Supported Browser Version' + browserVersion;
+}
+else
+{
+   document.getElementById("popup").innerHTML = 'Supported Browser';
 }
 
 }
