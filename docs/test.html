@@ -4,7 +4,13 @@
       <style>
          input {
          -webkit-user-select: none;
-         }
+            
+         }b
+         input {
+-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+-webkit-user-select: none;
+            }
       </style>
    </head>
    <body>
@@ -38,11 +44,11 @@
          
       </script>
       <script type="text/javascript">
-         $(document).ready(function () {
+      /*   $(document).ready(function () {
               $('input[type=text]').bind('copy paste', function (e) {
                  e.preventDefault();
               });
-           });
+           });*/
       </script>
    </body>
 </html>
