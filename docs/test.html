@@ -2,12 +2,9 @@
    <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <style>
- 
-         input {
--webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-            -webkit-user-select: none;
-
-            }
+ *:not(input):not(textarea) {
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link *
       </style>
    </head>
    <body>
