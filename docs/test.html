@@ -2,18 +2,8 @@
    <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <style>
-  {
-    /* Disable selection/Copy of UIWebView */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
 
-input,textarea {
-    /* Exception for input areas */
-    -webkit-touch-callout: default !important;
-    -webkit-user-select: text !important;
-}
+
       </style>
    </head>
    <body>
@@ -52,6 +42,23 @@ input,textarea {
                  e.preventDefault();
               });
            });*/
+         $.fn.extend({
+  disableSelection : function() {
+    this.each(function() {
+      this.onselectstart = function() {
+        return false;
+      };
+      this.unselectable = "on";
+      $(this).css('-moz-user-select', 'none');
+      $(this).css('-webkit-user-select', 'none');
+    });
+  }
+});
+
+
+$(function() {
+  $(this).disableSelection();
+});
       </script>
    </body>
 </html>
